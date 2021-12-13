@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
+import Navigation from '../Navigation';
 
 function Header(props) {
    const {
@@ -14,6 +15,7 @@ function Header(props) {
       document.title = currentTitle.name;
    }, [currentTitle]);
 
+
    return (
       <header className='flex-row px-1'>
          <h2>
@@ -21,33 +23,13 @@ function Header(props) {
                <span role='img' aria-label='camera'></span>Jose E Pina
             </a>
          </h2>
-         <nav>
-            <ul className='flex-row'>
-               {/* <li className='mx-2'>
-                  <a data-testid='about' href='#about' onClick={() => setContactSelected(false)}>
-                     About Me
-                  </a>
-               </li>
-               <li className={`mx-2 ${contactSelected && 'navActive'}`}>
-                  <span onClick={() => setContactSelected(true)}>Contact</span>
-               </li> */}
-               {titles.map((title) => (
-                  <li
-                     className={`mx-1 ${currentTitle.name === title.name && !contactSelected && 'navActive'}`}
-                     key={title.name}
-                  >
-                     <span
-                        onClick={() => {
-                           setCurrentTitle(title);
-                           setContactSelected(false);
-                        }}
-                     >
-                        {title.name}
-                     </span>
-                  </li>
-               ))}
-            </ul>
-         </nav>
+         <Navigation
+            titles={titles}
+            setCurrentTitle={setCurrentTitle}
+            currentTitle={currentTitle}
+            contactSelected={contactSelected}
+            setContactSelected={setContactSelected}
+         ></Navigation>
       </header>
    );
 }
