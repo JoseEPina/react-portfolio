@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import Header from './components/Header';
 // import Nav from './components/Nav';
 // import About from './components/About';
 // import Gallery from './components/Gallery';
@@ -8,25 +9,28 @@ import React, { useState } from 'react';
 function App() {
    const [contactSelected, setContactSelected] = useState(false);
 
-   const [categories] = useState([
+   const [titles] = useState([
       {
-         name: 'commercial',
-         description: 'Photos of grocery stores, food trucks, and other commercial projects',
+         name: 'About Me',
+         description: 'Let me show you what I can do for you!',
       },
-      { name: 'portraits', description: 'Portraits of peoplen in my life' },
-      { name: 'food', description: 'Delicious delicacies' },
-      { name: 'landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' },
+      { name: 'Portfolio', description: 'Project examples.' },
+      { name: 'Contact', description: 'Contact Me' },
+      { name: 'Resume', description: 'Feel free to download a cop' },
    ]);
 
-   const [currentCategory, setCurrentCategory] = useState(categories[0]);
+   const [currentTitle, setCurrentTitle] = useState(titles[0]);
 
-   console.log('currentCategory', currentCategory);
+   console.log('currentTitle', currentTitle);
    return (
       <div>
-         <header>
-            {' '}
-            <h1>My React Portfolio</h1>
-         </header>
+         <Header
+            titles = {titles}
+            setCurrentTitle = {setCurrentTitle}
+            currentTitle = {currentTitle}
+            contactSelected={contactSelected}
+            setContactSelected={setContactSelected}
+         />
          <main>
             <p>Place holder for Main</p>
          </main>
