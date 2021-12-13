@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Nav from './components/Nav';
-import About from './components/About';
-import Gallery from './components/Gallery';
-import ContactForm from './components/Contact';
+
+// import Nav from './components/Nav';
+// import About from './components/About';
+// import Gallery from './components/Gallery';
+// import ContactForm from './components/Contact';
 
 function App() {
    const [contactSelected, setContactSelected] = useState(false);
@@ -22,23 +23,16 @@ function App() {
    console.log('currentCategory', currentCategory);
    return (
       <div>
-         <Nav //
-            categories={categories}
-            setCurrentCategory={setCurrentCategory}
-            currentCategory={currentCategory}
-            contactSelected={contactSelected}
-            setContactSelected={setContactSelected}
-         ></Nav>
+         <header>
+            {' '}
+            <h1>My React Portfolio</h1>
+         </header>
          <main>
-            {!contactSelected ? (
-               <>
-                  <Gallery currentCategory={currentCategory}></Gallery>
-                  <About></About>
-               </>
-            ) : (
-               <ContactForm></ContactForm>
-            )}
+            <p>Place holder for Main</p>
          </main>
+         <footer>
+            <p> Place holder for Footer</p>
+         </footer>
       </div>
    );
 }
